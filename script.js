@@ -127,6 +127,7 @@ window.addEventListener("scroll", () => {
 // AUTOMATIC FOOTER YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
 
+
 // CONTACT FORM - PYTHON BACKEND
 
 const contactForm = document.getElementById("contact-form");
@@ -146,7 +147,7 @@ if (contactForm) {
         status.textContent = "Sending message...";
 
         try {
-            const response = await fetch("https://harsha-portfolio-backend.onrender.com/api/contact"
+            const response = await fetch("https://harsha-portfolio-backend.onrender.com/api/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
