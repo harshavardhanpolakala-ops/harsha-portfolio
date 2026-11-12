@@ -155,7 +155,16 @@ if (contactForm) {
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
+            const responseText = await response.text();
+console.log("Backend response:", responseText);
+
+let result;
+
+try {
+    result = JSON.parse(responseText);
+} catch {
+    throw new Error("Backend returned an HTML page instead of JSON. Please check the Render logs.");
+}
 
             if (!response.ok) {
                 throw new Error(result.error || "Message could not be sent.");
